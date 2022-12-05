@@ -1,4 +1,4 @@
-## DOCKER PHP - REDIS
+## DOCKER PHP - MYSQL
 
 - php 8
 - Composer
