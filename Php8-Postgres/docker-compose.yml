@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+    postgres:
+        image: 'postgres:11.1-alpine'
+        working_dir: /app
+        volumes:
+            - '.:/app'
+        environment:
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=psgrs
+        ports:
+            - '48004:5432'
+
+    webserver:
+        image: 'nginx:alpine'
+        working_dir: /app
+        volumes:
+            - '.:/app'
+            - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+        ports:
+            - '48000:80'
+
+    php-fpm:
+        build: phpdocker/php-fpm
+        working_dir: /app
+        volumes:
+            - '.:/app'
+            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini'
