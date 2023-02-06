@@ -1,0 +1,23 @@
+version: '3.9'
+
+volumes:
+    data_storage:
+
+services:
+    db:
+        image: mysql:5.7
+        container_name: mysql_training
+        ports:
+            - 3307:3307
+        environment:
+            MYSQL_HOST: localhost
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: 1234
+            MYSQL_ROOT_PASSWORD: 1234
+            MYSQL_DATABASE: training
+
+        volumes:
+            - data_storage:/var/lib/Mysql5.7-node
+
+        networks:
+            - default

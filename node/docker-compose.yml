@@ -10,14 +10,14 @@ services:
         volumes:
             - ./:/app
         environment:
-            MYSQL_HOST: mysql
+            MYSQL_HOST: Mysql5.7-node
             MYSQL_USER: root
             MYSQL_PASSWORD: '1234'
             MYSQL_DB: tests
     mysql:
         image: mysql:5.7
         volumes:
-            - test-mysql-data:/var/lib/mysql
+            - test-Mysql5.7-node-data:/var/lib/Mysql5.7-node
         environment:
             MYSQL_ROOT_PASSWORD: '1234'
             MYSQL_DATABASE: test
