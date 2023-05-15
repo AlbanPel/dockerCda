@@ -5,7 +5,7 @@ volumes:
 
 services:
     db:
-        image: mysql:5.7
+        image: mysql:5.5
         container_name: mysql_training
         ports:
             - "3306:3306"
@@ -14,10 +14,10 @@ services:
             MYSQL_USER: admin
             MYSQL_PASSWORD: 1234
             MYSQL_ROOT_PASSWORD: 1234
-            MYSQL_DATABASE: music
+            MYSQL_DATABASE: training
 
         volumes:
-            - data_storage:/var/lib/Mysql5.7-node
+            - data_storage:/var/lib/Mysql5.5-node
 
         networks:
             - default
